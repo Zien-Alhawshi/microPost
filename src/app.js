@@ -130,6 +130,6 @@ function deletePosts(){
 
 
 //we post an image (optional) when posting a post 
-//share links 
+
 const start = Date.now();
 console.log(start)

@@ -20,8 +20,15 @@ class UI {
   
       posts.forEach((post) => {
         output += `
-          <div class="card mb-3">
-            <div class="card-body ">
+          <div class="card mt-3 mb-3 ">
+            <div class="card-body col-md-6">
+            <div class="ssk-group">
+                <a href="" class="ssk ssk-facebook"></a>
+                <a href="" class="ssk ssk-twitter"></a>
+                <a href="" class="ssk ssk-google-plus"></a>
+                <a href="" class="ssk ssk-pinterest"></a>
+                <a href="" class="ssk ssk-tumblr"></a>
+            </div>
               <h4 class="card-title">${post.title}</h4>
               <h6 class="">${post.date_}</h6>
 
@@ -35,7 +42,9 @@ class UI {
               <i class="fa fa-remove"></i>
             </a>
             </div>
+          
           </div>
+         
         `;
       });
   
