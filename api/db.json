@@ -1,29 +1,3 @@
 {
-  "posts": [
-    {
-      "title": "Post 26",
-      "body": "This is post two",
-      "id": 2
-    },
-    {
-      "id": 3,
-      "title": "Post 3",
-      "body": "This is post hree"
-    },
-    {
-      "title": "post 4",
-      "body": "this is post  4",
-      "id": 4
-    },
-    {
-      "title": "post 6",
-      "body": "this is the post 6 in series",
-      "id": 5
-    },
-    {
-      "title": "post7",
-      "body": "this is the post 7 in series",
-      "id": 6
-    }
-  ]
+  "posts": []
 }

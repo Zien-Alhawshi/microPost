@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', getPosts);
 document.querySelector(".post-submit").addEventListener("click", submitPost);
 document.querySelector("#posts").addEventListener("click", deletePost)
 document.querySelector("#posts").addEventListener("click", enableEdit);
-document.querySelector(".card-form").addEventListener("click", cancelEdit)
+document.querySelector(".card-form").addEventListener("click", cancelEdit);
+document.querySelector("#clearAll").addEventListener("click", deletePosts);
+
 function getPosts() {
   http.get('http://localhost:3000/posts')
     .then(data => ui.showPosts(data))
@@ -91,6 +93,27 @@ function cancelEdit(e){
 
     e.preventDefault();
 
+}
+function deletePosts(){
+    http.get('http://localhost:3000/posts')
+    .then(
+        function(posts){
+            if(confirm("Are you sure?")){
+
+            posts.forEach(post => {
+                const id = post.id;
+                    http.delete(`http://localhost:3000/posts/${id}`)
+                    .then(data => {
+                        ui.showAlert("posts Removed", "alert alert-success");
+                        getPosts();
+                    })
+                    .catch(err => console.log(err))
+                
+            });
+        }
+        }
+    )
+    .catch(err => console.log(err));
 }
 
 //Clear All posts 

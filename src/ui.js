@@ -6,9 +6,16 @@ class UI {
       this.idInput = document.querySelector('#id');
       this.postSubmit = document.querySelector('.post-submit');
       this.forState = 'add';
+      this.clearAll = document.querySelector("#clearAll")
     }
   
     showPosts(posts) {
+      if(posts.length>0){
+        clearAll.style.display = "block";
+      }
+      else{
+        clearAll.style.display = "none";
+      }
       let output = '';
   
       posts.forEach((post) => {
