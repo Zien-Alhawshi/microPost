@@ -19,9 +19,14 @@ function submitPost(){
     const title = document.getElementById("title").value;
     const body = document.getElementById("body").value;
     const id = document.getElementById("id").value;
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(); 
+    var time = today.getHours() + ":" + today.getMinutes();
+    var date_ = `Last edit: ${time}/${date} `;   
     const data ={
         title,
-        body
+        body,
+        date_
     }
     if(title === "" || body === " "){
         ui.showAlert("Please fill in all fields", "alert alert-danger")
@@ -75,11 +80,16 @@ function enableEdit(e){
    if(e.target.parentElement.classList.contains("edit")){
     const id = e.target.parentElement.dataset.id;
     const body = e.target.parentElement.previousElementSibling.textContent;
-    const title = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+    const title = e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(); 
+    var time = today.getHours() + ":" + today.getMinutes();
+    var date_ = `Last edit: ${time}/${date} `;   
     const data = {
         id,
         body,
-        title
+        title,
+        date_
     }
     ui.fillForm(data)
     }
@@ -104,19 +114,22 @@ function deletePosts(){
                 const id = post.id;
                     http.delete(`http://localhost:3000/posts/${id}`)
                     .then(data => {
-                        ui.showAlert("posts Removed", "alert alert-success");
                         getPosts();
                     })
                     .catch(err => console.log(err))
                 
             });
+            // ui.showAlert("posts Removed", "alert alert-success");
+
         }
         }
     )
     .catch(err => console.log(err));
 }
 
-//Clear All posts 
-//we add to the project the data of the post added 
+
+
 //we post an image (optional) when posting a post 
 //share links 
+const start = Date.now();
+console.log(start)
